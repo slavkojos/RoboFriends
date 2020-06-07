@@ -6,13 +6,12 @@ import SearchBox from "./Components/SearchBox";
 import Scroll from "./Components/Scroll";
 
 
-
 function App() {
   
 const [robots, updateRobots] = useState([]);
-const [filteredRobots, filterRobots] = useState([robots]);
+const [filteredRobots, filterRobots] = useState([]);
 
-useEffect(function effectFunction() {
+useEffect(() => {
 fetch('https://raw.githubusercontent.com/slavkojos/mockdata/master/MOCK_DATA_100.json')
   .then(response => response.json())
   .then(data => {
@@ -27,11 +26,7 @@ filterRobots(robots.filter(robot => {
 return (robot.name.toLowerCase().includes(searchValue.toLowerCase()))
 }));
 
-
 }
-
-  
-
 
   return (
     <div className="App tc ma2">
